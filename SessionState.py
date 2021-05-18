@@ -1,4 +1,4 @@
-"""Hack to add per-session state to Streamlit.
+"""Hack to add per-session state to Streamlit
 
 Usage
 -----

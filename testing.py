@@ -25,6 +25,7 @@ class RobotCrossStreet(KnowledgeEngine):
 
 
 ## Interface (using streamlit)
+
 st.title('Traffic Light Info')
 
 # Form to get user's name
