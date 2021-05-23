@@ -65,7 +65,7 @@ class UnsupervisedLearning(KnowledgeEngine):
 ## Streamlit Code
 
 st.title("Lecturer Expert System - Machine Learning")
-st.image('ML.jpg')
+st.image('imagefiles/ML.jpg')
 
 
 with st.form(key='my_form'):
