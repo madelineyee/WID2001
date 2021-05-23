@@ -11,7 +11,7 @@ class IntroToML(KnowledgeEngine):
     @Rule(InfoML(choice='Definitions'))
     def def_ML(self):
         st.write("There are 2 definitions of Machine Learning:")
-        st.image("imagefiles\Arthur.jpg")
+        st.image("WID2001\imagefiles\Arthur.jpg")
         st.markdown('<h3><b>Arthur Samuel</b></h3>', unsafe_allow_html=True)
         st.write("A pioneer in the domain of AI - “Machine Learning is the field of study that gives computers the ability to learn without being explicitly programmed.” However, this is an older, informal definition.")
         st.image("imagefiles\Tom.jpg")
@@ -65,7 +65,7 @@ class UnsupervisedLearning(KnowledgeEngine):
 ## Streamlit Code
 
 st.title("Lecturer Expert System - Machine Learning")
-st.image("imagefiles\ML.jpg", width=None)
+st.image("WID2001\imagefiles\ML.jpg", width=None)
 
 
 with st.form(key='my_form'):
