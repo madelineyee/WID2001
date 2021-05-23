@@ -164,7 +164,7 @@ elif decision == "Supervised Learning":
     engine.declare(InfoML(choice=sl_choice))
     engine.run()
 elif decision == "Unsupervised Learning":
-    ul_choice = st.selectbox("What would you like to know in Unsupervised Learning?", ('', "Introduction", "Clustering", "Non-clustering"))
+    ul_choice = st.selectbox("What would you like to know in Unsupervised Learning?", ('', "Introduction", "Clustering", "Non-Clustering"))
     engine = UnsupervisedLearning()
     engine.reset()
     engine.declare(InfoML(choice=ul_choice))
