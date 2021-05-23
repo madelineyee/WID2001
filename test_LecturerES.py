@@ -11,17 +11,17 @@ class IntroToML(KnowledgeEngine):
     @Rule(InfoML(choice='Definitions'))
     def def_ML(self):
         st.write("There are 2 definitions of Machine Learning:")
-        st.image("imagefiles/Arthur.jpg")
+        st.image("imagefiles/Arthur.jpg",use_column_width=True )
         st.markdown('<h3><b>Arthur Samuel</b></h3>', unsafe_allow_html=True)
         st.write("A pioneer in the domain of AI - “Machine Learning is the field of study that gives computers the ability to learn without being explicitly programmed.” However, this is an older, informal definition.")
-        st.image("imagefiles/Tom.jpg")
+        st.image("imagefiles/Tom.jpg",use_column_width=True)
         st.markdown('<h3><b>Tom Mitchell</b></h3>', unsafe_allow_html=True)
         st.write("A machine learning professor - “A computer program is said to learn from experience (E) with respect to some class of tasks (T) and performance measure (P). If its performance at tasks in T, as measured by P, improves with experience E.")
 
     @Rule(InfoML(choice='Examples of the Definitions'))
     def example_defs(self):
+        st.markdown('<h3><b>Examples: Playing Checkers</b></h3>', unsafe_allow_html=True)
         st.image("imagefiles/checkers.jpg")
-        st.write("For example: playing checkers.")
         st.write("E = the experience of playing many games of checkers")
         st.write("T = the task of playing checkers")
         st.write("P = the probability that the program will win the next game")
