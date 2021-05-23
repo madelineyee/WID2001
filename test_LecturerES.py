@@ -14,13 +14,13 @@ class IntroToML(KnowledgeEngine):
         st.image("imagefiles/Arthur.jpg")
         st.markdown('<h3><b>Arthur Samuel</b></h3>', unsafe_allow_html=True)
         st.write("A pioneer in the domain of AI - “Machine Learning is the field of study that gives computers the ability to learn without being explicitly programmed.” However, this is an older, informal definition.")
-        st.image("imagefiles\Tom.jpg")
+        st.image("imagefiles/Tom.jpg")
         st.markdown('<h3><b>Tom Mitchell</b></h3>', unsafe_allow_html=True)
         st.write("A machine learning professor - “A computer program is said to learn from experience (E) with respect to some class of tasks (T) and performance measure (P). If its performance at tasks in T, as measured by P, improves with experience E.")
 
     @Rule(InfoML(choice='Examples of the Definitions'))
     def example_defs(self):
-        st.image("imagefiles\checkers.jpg")
+        st.image("imagefiles/checkers.jpg")
         st.write("For example: playing checkers.")
         st.write("E = the experience of playing many games of checkers")
         st.write("T = the task of playing checkers")
@@ -31,7 +31,7 @@ class IntroToML(KnowledgeEngine):
         st.write("In general, any machine learning problem can be assigned to one of 2 broad classifications: ")
         st.write("- Supervised Learning") 
         st.write("- Unsupervised Learning")
-        st.image("imagefiles\sup-vs-unsup.png")
+        st.image("imagefiles/sup-vs-unsup.png")
 
 class SupervisedLearning(KnowledgeEngine):
     @Rule(InfoML(choice='Introduction'))
