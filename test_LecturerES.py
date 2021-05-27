@@ -9,6 +9,14 @@ import streamlit as st
 import quiz.chap1 as chap1
 from quiz.chap1 import *
 
+import quiz.chap2 as chap2
+from quiz.chap2 import *
+
+import quiz.chap3 as chap3
+from quiz.chap3 import *
+
+
+
 class InfoML(Fact):
     """ Information about Machine Learning """
     pass
@@ -61,7 +69,9 @@ class SupervisedLearning(KnowledgeEngine):
         st.markdown('<h3><b>Classification</b></h3>', unsafe_allow_html=True)
         st.write("In a classification problem, we are trying to map input variables into discrete categories. In other words, we are trying to map input variables into discrete categories.")
         st.write("Example: Given data about the size of houses on the real estate market, try to predict whether the house sells for more or less than the asking price. Here we are classifying the houses based on price into 2 discrete categories.")
-
+    @Rule (InfoML(choice="Quiz"))
+    def quiz_chap2(self):
+        chap2.run_chap2()
 class UnsupervisedLearning(KnowledgeEngine):
     @Rule (InfoML(choice="Introduction"))
     def intro_UL(self):
@@ -77,6 +87,9 @@ class UnsupervisedLearning(KnowledgeEngine):
     def nonclustering_def(self):
         st.markdown('<h3><b>Non-Clustering</b></h3>', unsafe_allow_html=True)
         st.write("The “Cocktail Party Algorithm” allows you to find structure in a chaotic environment. For example, identifying individual voices and music from a mesh of sounds at a cocktail party.")
+    @Rule (InfoML(choice="Quiz"))
+    def quiz_chap3(self):
+        chap3.run_chap3()
 class ModelRepresentation(KnowledgeEngine):
     @Rule (InfoML(choice="Introduction"))
     def intro_MR(self):
@@ -165,13 +178,13 @@ if decision == "Introduction to ML":
     engine.declare(InfoML(choice=intro_choice))
     engine.run()
 elif decision == "Supervised Learning":
-    sl_choice = st.selectbox("What would you like to know in Supervised Learning?", ('', "Introduction", "Regression Problem", "Classification Problem"))
+    sl_choice = st.selectbox("What would you like to know in Supervised Learning?", ('', "Introduction", "Regression Problem", "Classification Problem", "Quiz"))
     engine = SupervisedLearning()
     engine.reset()
     engine.declare(InfoML(choice=sl_choice))
     engine.run()
 elif decision == "Unsupervised Learning":
-    ul_choice = st.selectbox("What would you like to know in Unsupervised Learning?", ('', "Introduction", "Clustering", "Non-Clustering"))
+    ul_choice = st.selectbox("What would you like to know in Unsupervised Learning?", ('', "Introduction", "Clustering", "Non-Clustering", "Quiz"))
     engine = UnsupervisedLearning()
     engine.reset()
     engine.declare(InfoML(choice=ul_choice))
