@@ -4,6 +4,11 @@ from random import choice
 from experta import *
 import streamlit as st
 
+# Importing classes for quiz
+# IMPORTANT - run this file when you're in the WID2001 directory - else it will not run
+import quiz.chap1 as chap1
+from quiz.chap1 import *
+
 class InfoML(Fact):
     """ Information about Machine Learning """
     pass
@@ -33,6 +38,9 @@ class IntroToML(KnowledgeEngine):
         st.write("- Supervised Learning") 
         st.write("- Unsupervised Learning")
         st.image("imagefiles/sup-vs-unsup.png")
+    @Rule (InfoML(choice="Quiz"))
+    def quiz_chap1(self):
+        chap1.run_chap1()
 
 class SupervisedLearning(KnowledgeEngine):
     @Rule(InfoML(choice='Introduction'))
@@ -69,7 +77,6 @@ class UnsupervisedLearning(KnowledgeEngine):
     def nonclustering_def(self):
         st.markdown('<h3><b>Non-Clustering</b></h3>', unsafe_allow_html=True)
         st.write("The “Cocktail Party Algorithm” allows you to find structure in a chaotic environment. For example, identifying individual voices and music from a mesh of sounds at a cocktail party.")
-
 class ModelRepresentation(KnowledgeEngine):
     @Rule (InfoML(choice="Introduction"))
     def intro_MR(self):
@@ -141,7 +148,7 @@ st.title("Lecturer Expert System - Machine Learning")
 st.image('imagefiles/ML.jpg')
 
 
-with st.form(key='my_form'):
+with st.form(key='name_form'):
     name = st.text_input(label='What is your name?')
     submit_button = st.form_submit_button(label='Submit')
 #if submit_button: (Found that removing this line keep the name displayed)
@@ -152,7 +159,7 @@ decision = st.selectbox('', ('Pick One!', "Introduction to ML", "Supervised Lear
                           "Unsupervised Learning", "Model Representation", "Cost Function", "Gradient Descent"))
 
 if decision == "Introduction to ML":
-    intro_choice = st.selectbox("What would you like to know in Introduction to ML?", ('', "Definitions", "Examples of the Definitions", "Classification of Machine Learning"))
+    intro_choice = st.selectbox("What would you like to know in Introduction to ML?", ('', "Definitions", "Examples of the Definitions", "Classification of Machine Learning", "Quiz"))
     engine = IntroToML()
     engine.reset()
     engine.declare(InfoML(choice=intro_choice))
