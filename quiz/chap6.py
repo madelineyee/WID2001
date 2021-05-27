@@ -17,7 +17,7 @@ def run_chap6():
 
 	with header:
 		st.title('Test your understanding')
-		st.image("images/thinking.png")
+		st.image("quiz/images/thinking.png")
 		st.header('Chapter 6: Gradient Descent') 
 
 	with form:
