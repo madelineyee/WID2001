@@ -159,7 +159,7 @@ class GradientDescent(KnowledgeEngine):
         st.write("Cost function is successfully minimized when it is at the very bottom of the pits in the graph.")
         st.write("\nThe method to do this is by taking the derivative (the tangential line to a function) of the cost function. The slope of the tangent is the derivative at that point and it will give us a direction to move towards. We make steps down the cost function in the direction with the steepest descent. The size of each step is determined by the parameter α, which is called the learning rate.")
         st.write("\nFor example, the distance between each 'star' in the graph above represents a step determined by parameter α. (smaller α = smaller step, larger α = larger step)")
-        st.write(r"""The direction in which the step is taken is determined by the partial derivative of $J(\theta _{0},\theta _{1}) $""")
+        st.write(r"""The direction in which the step is taken is determined by the partial derivative of $J(\theta _{0},\theta _{1})$""")
         st.write("Depending on where one starts on the graph, one could end up at different points. The image above shows us two different starting points that end up in two different places.")
     @Rule (InfoML(choice="Algorithm"))
     def algo_GD(self):
@@ -177,12 +177,16 @@ class GradientDescent(KnowledgeEngine):
 st.title("Lecturer Expert System - Machine Learning") 
 st.image('imagefiles/ML.jpg')
 
-
+# Introduction
 with st.form(key='name_form'):
+    st.write("Welcome to the Machine Learning Lecturer Expert System! My name is LESMLO" + 
+    " which stands for 'Lecturer Expert System for Machine Learning Operations! Very nice to meet you and to teach you today.")
+    st.write("Please tell me about yourself!")
     name = st.text_input(label='What is your name?')
+    occupation = st.text_input(label='What is your occupation?')
     submit_button = st.form_submit_button(label='Submit')
 #if submit_button: (Found that removing this line keep the name displayed)
-    st.write(f"Why hello there {name}! Welcome to the Machine Learning Lecturer Expert System!")
+    st.write(f"Why hello there {name}!")
 
 st.write(f"What would you like to know about Machine Learning? Please choose a chapter that you would like to learn!")
 decision = st.selectbox('', ('Pick One!', "Introduction to ML", "Supervised Learning", 
