@@ -22,10 +22,10 @@ with form:
     with q1:
         st.header('Question 1')
         st.image("images/historical.png") 
-        st.markdown('A computer program is said to learn from experience E with respect to some task T and')
-        st.markdown('some performance measure P if its performance on T, as measured by P, improves with')
-        st.markdown('experience E. Suppose we feed a learning algorithm a lot of historical weather data,')
-        st.markdown('and have it learn to predict weather. In this setting, what is T?')
+        st.write('A computer program is said to learn from experience E with respect to some task T and some' + 
+        ' performance measure P if its performance on T, as measured by P, improves with' + 
+        ' experience E. Suppose we feed a learning algorithm a lot of historical weather data,' +
+        ' and have it learn to predict weather. In this setting, what is T?')
         st.text('a. The weather prediction task.')
         st.text('b. None of these.')
         st.text('c. The probability of it correctly predicting a future date’s weather.')
