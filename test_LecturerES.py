@@ -124,7 +124,8 @@ class GradientDescent(KnowledgeEngine):
         st.write("Cost function is successfully minimized when it is at the very bottom of the pits in the graph.")
         st.write("\nThe method to do this is by taking the derivative (the tangential line to a function) of the cost function. The slope of the tangent is the derivative at that point and it will give us a direction to move towards. We make steps down the cost function in the direction with the steepest descent. The size of each step is determined by the parameter α, which is called the learning rate.")
         st.write("\nFor example, the distance between each 'star' in the graph above represents a step determined by parameter α. (smaller α = smaller step, larger α = larger step)")
-        st.write(r"""The direction in which the step is taken is determined by the partial derivative of $J(\theta _{0},\theta _{1}) $""")
+        st.write(r"""The direction in which the step is taken is determined by the partial derivative of""")
+        st.write(r"""$J(\theta _{0},\theta _{1}) $""")
         st.write("Depending on where one starts on the graph, one could end up at different points. The image above shows us two different starting points that end up in two different places.")
     @Rule (InfoML(choice="Algorithm"))
     def algo_GD(self):
