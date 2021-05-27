@@ -15,6 +15,14 @@ from quiz.chap2 import *
 import quiz.chap3 as chap3
 from quiz.chap3 import *
 
+import quiz.chap4 as chap4
+from quiz.chap4 import *
+
+import quiz.chap5 as chap5
+from quiz.chap5 import *
+
+import quiz.chap6 as chap6
+from quiz.chap6 import *
 
 
 class InfoML(Fact):
@@ -90,6 +98,7 @@ class UnsupervisedLearning(KnowledgeEngine):
     @Rule (InfoML(choice="Quiz"))
     def quiz_chap3(self):
         chap3.run_chap3()
+
 class ModelRepresentation(KnowledgeEngine):
     @Rule (InfoML(choice="Introduction"))
     def intro_MR(self):
@@ -116,6 +125,9 @@ class ModelRepresentation(KnowledgeEngine):
         st.write("Technically, this is a problem called function approximation, where we are approximating an unknown target function (that we assume exists) that can best map inputs to outputs on all possible observations from the problem domain.")
         st.write("An example of a model that approximates the target function and performs mappings of inputs to outputs is called a hypothesis in machine learning.")
         st.image("imagefiles/hypothesis.jpg")
+    @Rule (InfoML(choice="Quiz"))
+    def quiz_chap4(self):
+        chap4.run_chap4()
 class CostFunction(KnowledgeEngine):
     @Rule (InfoML(choice="Introduction"))
     def intro_CF(self):
@@ -131,6 +143,9 @@ class CostFunction(KnowledgeEngine):
         st.write(r"""$J(\theta) = \frac{1}{2m} \sum_{i=1}^m \left( h_{\theta}(x^{(i)}) - y^{(i)}\right)^2$""")
         st.write("This function is called the “Squared error function” or “Mean squared error”.")
         st.write("After calculating the Cost Function, it will return a value that corresponds to the Model error. The continuous goal is to minimize the Cost Function. When the Cost Function is minimized, the error is minimized, and consequently, the performance of the Model is improved. But how can we minimize the cost function? There are various ways to do it but the commonly used one is called Gradient Descent which we will learn in the next chapter.")
+    @Rule (InfoML(choice="Quiz"))
+    def quiz_chap5(self):
+        chap5.run_chap5()
 class GradientDescent(KnowledgeEngine):
     @Rule (InfoML(choice="Introduction"))
     def intro_GD(self):
@@ -153,7 +168,9 @@ class GradientDescent(KnowledgeEngine):
         st.write("repeat until convergence:")
         st.write(r"""$\theta_j := \theta_j - \alpha\frac{\partial}{\partial \theta_j}J({\theta_{0}},\theta_{1})$ """)
         st.write(r"""where $j=0,1$ represents the feature index number""")
-
+    @Rule (InfoML(choice="Quiz"))
+    def quiz_chap6(self):
+        chap6.run_chap6()
 
 ### Streamlit Code
 
@@ -190,19 +207,19 @@ elif decision == "Unsupervised Learning":
     engine.declare(InfoML(choice=ul_choice))
     engine.run()
 elif decision == "Model Representation":
-    mr_choice = st.selectbox("What would you like to know in Model Representation?", ('', "Introduction", "Notation", "Goal for a given training set", "Definition of Hypothesis"))
+    mr_choice = st.selectbox("What would you like to know in Model Representation?", ('', "Introduction", "Notation", "Goal for a given training set", "Definition of Hypothesis", "Quiz"))
     engine = ModelRepresentation()
     engine.reset()
     engine.declare(InfoML(choice=mr_choice))
     engine.run()
 elif decision == "Cost Function":
-    cf_choice = st.selectbox("What would you like to know in Cost Function?", ('', "Introduction", "Squared error function"))
+    cf_choice = st.selectbox("What would you like to know in Cost Function?", ('', "Introduction", "Squared error function", "Quiz"))
     engine = CostFunction()
     engine.reset()
     engine.declare(InfoML(choice=cf_choice))
     engine.run()
 elif decision == "Gradient Descent":
-    gd_choice = st.selectbox("What would you like to know in Gradient Descent?", ('', "Introduction", "Representation of Gradient Descent","Algorithm"))
+    gd_choice = st.selectbox("What would you like to know in Gradient Descent?", ('', "Introduction", "Representation of Gradient Descent","Algorithm", "Quiz"))
     engine = GradientDescent()
     engine.reset()
     engine.declare(InfoML(choice=gd_choice))
