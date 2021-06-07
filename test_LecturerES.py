@@ -24,12 +24,36 @@ from quiz.chap5 import *
 import quiz.chap6 as chap6
 from quiz.chap6 import *
 
+text = '''
 
+---
+
+'''
 class InfoML(Fact):
     """ Information about Machine Learning """
     pass
 
 class IntroToML(KnowledgeEngine):
+    @Rule(InfoML(choice='Learning Outcomes'))
+    def learning_outcomes(self):
+        st.write("Based on the Undergraduate Degree Programme Handbook, you will learn how to:")
+        st.write("- Explain the concepts and techniques for supervised learning and unsupervised learning.")
+        st.write("- Apply practical solutions to solve common problems in machine learning.")
+
+    @Rule(InfoML(choice='Course Content and Outline'))
+    def course_content(self):
+        st.write("According to my knowledge as a newly developed Lecturer Expert System, I only have a handful of information in my repository of knowledge.")
+        st.write("What I can teach you include:")
+        st.write("- Introduction to ML\n"
+        "- Supervised Learning\n"
+        "- Unsupervised Learning\n"
+        "- Model Representation\n"
+        "- Cost Function\n"
+        "- Gradient Descent\n")
+
+        st.write("Once you're done equipping yourself with knowledge, I have a QUIZ function where you can test what you've learnt with me!")
+        st.write("There will be a quiz for every chapter in LESMLO so be sure to try them out for a surprise!")
+    
     @Rule(InfoML(choice='Definitions'))
     def def_ML(self):
         st.write("There are 2 definitions of Machine Learning:")
@@ -186,8 +210,26 @@ with st.form(key='name_form'):
     occupation = st.text_input(label='What is your occupation?')
     submit_button = st.form_submit_button(label='Submit')
 #if submit_button: (Found that removing this line keep the name displayed)
-    st.write(f"Why hello there {name}!")
+    st.write(f"Why hello there {name}! Hope you're excited to learn more about Machine Learning with me!")
 
+st.header("Course Briefing")
+st.write(f"Would you like to know more about what's in store with LESMLO?")
+outline_decision = st.selectbox('', ("Sure!", "Learning Outcomes", "Course Content and Outline"))
+if outline_decision == "Learning Outcomes":
+    engine = IntroToML()
+    engine.reset()
+    engine.declare(InfoML(choice=outline_decision))
+    engine.run()
+elif outline_decision == "Course Content and Outline":
+    engine = IntroToML()
+    engine.reset()
+    engine.declare(InfoML(choice=outline_decision))
+    engine.run()
+
+####################################################################################################################################
+
+st.markdown(text)
+st.header("Learning Section")
 st.write(f"What would you like to know about Machine Learning? Please choose a chapter that you would like to learn!")
 decision = st.selectbox('', ('Pick One!', "Introduction to ML", "Supervised Learning", 
                           "Unsupervised Learning", "Model Representation", "Cost Function", "Gradient Descent"))
